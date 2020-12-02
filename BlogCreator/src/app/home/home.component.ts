@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   constructor(private user : UsersService){
     this.user.getData().subscribe((data : any[]) =>{
       this.data = data;
-      console.warn(this.data);
     })
   }
 
