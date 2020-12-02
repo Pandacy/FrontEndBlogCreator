@@ -1,1 +1,12 @@
-<p>home works!</p>
+<table>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Password</td>
+    </tr>
+    <tr *ngFor="let item of data">
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.password}}</td>
+    </tr>
+</table>
