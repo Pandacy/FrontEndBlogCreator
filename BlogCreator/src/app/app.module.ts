@@ -9,15 +9,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UsersService } from './home/users.service';
+import { UserformComponent } from './userform/userform.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    UserformComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
     MatMenuModule,

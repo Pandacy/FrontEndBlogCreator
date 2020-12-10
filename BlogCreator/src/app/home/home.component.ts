@@ -8,9 +8,9 @@ import { UsersService } from './users.service';
 })
 export class HomeComponent implements OnInit {
 
-  data=[]
-  constructor(private user : UsersService){
-    this.user.getData().subscribe((data : any[]) =>{
+  data = []
+  constructor(private user: UsersService) {
+    this.user.getData().subscribe((data: any[]) => {
       this.data = data;
     })
   }
