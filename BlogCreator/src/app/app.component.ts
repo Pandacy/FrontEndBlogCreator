@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UsersService } from './home/users.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +8,11 @@ import { UsersService } from './home/users.service';
 export class AppComponent {
   title = 'BlogCreator';
   
+  public isLoggedIn()
+  {
+    if (localStorage.getItem('id_token') === null){
+      return false;
+    }
+    return true;
+  }
 }

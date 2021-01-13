@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form [formGroup]="authForm" (ngSubmit)="getAccessToken();">
+          <div class="formbox">
+            <div class="form-group">
+                <input type="text" formControlName="name" class="form-control" placeholder="Name"
+                  [ngClass]="{ 'is-invalid': submitted && fval.name.errors }" />
+                <div *ngIf="submitted && fval.name.errors" class="invalid-feedback">
+                  <div *ngIf="fval.name.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" formControlName="pass" class="form-control" placeholder="Password"
+                  [ngClass]="{ 'is-invalid': submitted && fval.pass.errors }" />
+                <div *ngIf="submitted && fval.pass.errors" class="invalid-feedback">
+                  <div *ngIf="fval.pass.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary signin">Place message<span class="arrowbtn"><span
+                    class="fa fa-arrow-right"></span></span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

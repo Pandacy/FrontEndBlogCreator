@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form [formGroup]="blogForm" (ngSubmit)="blogrequest();">
+          <div class="formbox">
+  
+            <div class="form-group">
+              <input type="text" formControlName="title" class="form-control" placeholder="Title"
+                [ngClass]="{ 'is-invalid': submitted && fval.title.errors }" />
+              <div *ngIf="submitted && fval.title.errors" class="invalid-feedback">
+                <div *ngIf="fval.title.errors.required">
+                  Title is required
+                </div>
+  
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" formControlName="description" class="form-control" placeholder="Description"
+                [ngClass]="{ 'is-invalid': submitted && fval.description.errors }" />
+              <div *ngIf="submitted && fval.description.errors" class="invalid-feedback">
+                <div *ngIf="fval.description.errors.required">Description is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary signin">Request Blog<span class="arrowbtn"><span
+                    class="fa fa-arrow-right"></span></span></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

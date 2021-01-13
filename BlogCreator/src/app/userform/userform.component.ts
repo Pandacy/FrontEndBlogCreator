@@ -32,7 +32,6 @@ export class UserformComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
-      tnc: ['', Validators.required]
     });
   }
   get fval() {

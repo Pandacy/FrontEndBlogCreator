@@ -1,0 +1,19 @@
+  <div class="card my-4">
+    <div class="card-body">
+      <form [formGroup]="messageForm" (ngSubmit)="placemessage();">
+        <div class="formbox">
+          <div class="form-group">
+              <input type="text" formControlName="content" class="form-control" placeholder="content"
+                [ngClass]="{ 'is-invalid': submitted && fval.content.errors }" />
+              <div *ngIf="submitted && fval.content.errors" class="invalid-feedback">
+                <div *ngIf="fval.content.errors.required">Content is required</div>
+              </div>
+            </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary signin">Place message<span class="arrowbtn"><span
+                  class="fa fa-arrow-right"></span></span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -7,17 +7,38 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { UsersService } from './home/users.service';
 import { UserformComponent } from './userform/userform.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlogComponent } from './blog/blog.component';
+import { CommentComponent } from './comment/comment.component';
+import { MessageComponent } from './message/message.component';
+import { AdminblogComponent } from './adminblog/adminblog.component';
+import { BlogformComponent } from './blogform/blogform.component';
+import { MessageformComponent } from './messageform/messageform.component';
+import { CommentformComponent } from './commentform/commentform.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+
+import { BlogService } from './blog/blog.service';
+import { MessageService} from './message/message.service';
+import { CommentService} from './comment/comment.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    UserformComponent
+    UserformComponent,
+    NavbarComponent,
+    BlogComponent,
+    CommentComponent,
+    MessageComponent,
+    AdminblogComponent,
+    BlogformComponent,
+    MessageformComponent,
+    CommentformComponent,
+    AuthorizationComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -26,9 +47,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [ UsersService ],
+  providers: [ BlogService, MessageService, CommentService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

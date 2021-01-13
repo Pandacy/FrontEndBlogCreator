@@ -40,19 +40,7 @@
                 <div *ngIf="fval.confirmPassword.errors.required">Confirm password is required</div>
                 <div *ngIf="fval.confirmPassword.errors?.notEqual">Password Mismatch</div>
               </div>
-  
             </div>
-            <div class="form-group">
-              <div class="checkboxrow">
-                <input type="checkbox" class="form-check-input" id="tnc" formControlName="tnc"
-                  [ngClass]="{ 'is-invalid': submitted && fval.tnc.errors }">
-                <label for="tnc" class="form-check-label">Agree with terms and conditions</label>
-                <div *ngIf="submitted && fval.tnc.errors" class="invalid-feedback">
-                  <div>Please agree with terms and conditions</div>
-                </div>
-              </div>
-            </div>
-  
             <div class="form-group">
               <button type="submit" class="btn btn-primary signin">Sign Up <span class="arrowbtn"><span
                     class="fa fa-arrow-right"></span></span></button>
