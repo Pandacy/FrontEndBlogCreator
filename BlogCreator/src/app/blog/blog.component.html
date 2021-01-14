@@ -9,11 +9,11 @@
     <div class="col-lg-8">
 
       <!-- Title -->
-      <h1 class="mt-4">{{data.title}}</h1>
+      <h1 class="mt-4">{{ data?.title }}</h1>
 
       <!-- Author -->
       <p class="lead">
-        by {{data.user.name}}
+        by {{data?.user.name}}
         <a href="#"></a>
       </p>
       <app-messageform></app-messageform>
@@ -66,7 +66,7 @@
       <div class="card my-4">
         <h5 class="card-header">User Description</h5>
         <div class="card-body">
-          {{data.description}}
+          {{data?.description}}
         </div>
       </div>
 

@@ -21,7 +21,7 @@ interface blog {
 export class BlogformComponent implements OnInit {
   blogForm: FormGroup;
   submitted = false;
-
+  error = false;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
   title = 'reactive-form';
 
@@ -43,12 +43,9 @@ export class BlogformComponent implements OnInit {
         'name' : localStorage.getItem('name'),
       }
     };
-    //localStorage.getItem("id")
-    console.log(JSON.stringify(data));
-    
     this.http.post('http://localhost:9090/blog', JSON.stringify(data), httpOptions).subscribe(
       (response) => console.log(response),
-      (error) => console.log(error),
+      (error) => this.error = true,
     )
   }
 }

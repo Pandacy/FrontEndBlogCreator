@@ -1,7 +1,7 @@
 <!-- Post Content -->
 <div class="card my-4" *ngFor="let item of data">
   <div class="card-body">
-    <h5>{{item.content}}</h5>
+    <h5>{{item?.content}}</h5>
     <form (ngSubmit)="deleteMessage(item.id);">
       <div class="form-group">
         <button type="submit" class="btn btn-primary signin">Delete<span class="arrowbtn"><span

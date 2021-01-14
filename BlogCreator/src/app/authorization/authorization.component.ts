@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authorization',
@@ -10,12 +11,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AuthorizationComponent implements OnInit {
   authForm: FormGroup;
   submitted = false;
+  error = false;
   get fval() {
     return this.authForm.controls;
   }
   response:any;
 
-  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient, private router : Router) { }
 
   ngOnInit() {
     this.authForm = this.formBuilder.group({
@@ -31,7 +33,6 @@ export class AuthorizationComponent implements OnInit {
     };
     
     let resp=this.httpClient.post("http://localhost:9090/user/login", login, {responseType : 'text'}  );
-    
     resp.subscribe(data=>this.accessApi(data, login.name));
   }
 
@@ -42,6 +43,13 @@ export class AuthorizationComponent implements OnInit {
       const headers = new HttpHeaders().set('Authorization', tokenStr);
       localStorage.setItem('id_token', tokenStr);
       localStorage.setItem('name', name);
+      this.router.navigate(['']).then(() => {
+        window.location.reload();
+      });;
+    }
+    else {
+      this.error = true;
     }
   }
+  
 }

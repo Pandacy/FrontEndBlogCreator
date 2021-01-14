@@ -24,6 +24,7 @@ import { AuthorizationComponent } from './authorization/authorization.component'
 import { BlogService } from './blog/blog.service';
 import { MessageService} from './message/message.service';
 import { CommentService} from './comment/comment.service';
+import { LoginService} from './login.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { CommentService} from './comment/comment.service';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [ BlogService, MessageService, CommentService ],
+  providers: [ BlogService, MessageService, CommentService, LoginService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

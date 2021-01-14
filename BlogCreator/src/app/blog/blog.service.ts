@@ -5,17 +5,15 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class BlogService {
   constructor(private httpClient: HttpClient) { 
-    console.log(localStorage.getItem('name'));
   }
   getData()
   {
-    let url = "http://localhost:9090/blog";
-    return this.httpClient.get(url);
+    return this.httpClient.get("http://localhost:9090/blog");
   }
   getBlog()
   {
-    let url = "http://localhost:9090/blog/" + localStorage.getItem('name');
-    return this.httpClient.get(url);
+    console.log(localStorage.getItem('name'));
+    return this.httpClient.get("http://localhost:9090/blog/" + localStorage.getItem('name'));
   }
   addBlog(payload) {
     this.httpClient.post("http://localhost:9090/blog", payload, { headers: new HttpHeaders().set("Content-Type", "application/json")});

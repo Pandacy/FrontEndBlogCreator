@@ -13,4 +13,8 @@ export class CommentService {
   addComment(payload) {
     this.httpClient.post("http://localhost:9090/comment", payload, { headers: new HttpHeaders().set("Content-Type", "application/json")});
   }
+
+  deleteComment(id){
+    this.httpClient.delete("http://localhost:9090/comment/" + id);
+  }
 }

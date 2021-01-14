@@ -14,13 +14,14 @@ export class MessageComponent implements OnInit {
   submitted = false;
   data = []
   constructor(private message: MessageService, private formBuilder: FormBuilder, private http: HttpClient) {
-    this.message.getData().subscribe((data: any[]) => {
+    this.message.getData(localStorage.getItem("idBlog")).subscribe((data : any[]) => {
       this.data = data;
     })
   }
 
   deleteMessage(id){
     this.message.deleteMessage(id);
+    window.location.reload();
   }
 
   ngOnInit(): void {

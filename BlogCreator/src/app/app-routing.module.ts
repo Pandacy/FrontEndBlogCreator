@@ -8,15 +8,17 @@ import { MessageComponent } from './message/message.component';
 import { MessageformComponent } from './messageform/messageform.component';
 import { UserformComponent } from './userform/userform.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { LoginguardGuard } from './loginguard.guard';
+
 
 const routes: Routes = [
   { path: 'userform-component', component: UserformComponent },
-  { path: 'blogform-component', component: BlogformComponent },
-  { path: 'messageform-component', component: MessageformComponent },
-  { path: 'commentform-component', component: CommentformComponent },
-  { path: 'blog-component', component: BlogComponent },
-  { path: 'message-component', component: MessageComponent },
-  { path: 'comment-component', component: CommentComponent },
+  { path: 'blogform-component', component: BlogformComponent,  canActivate:[LoginguardGuard] },
+  { path: 'messageform-component', component: MessageformComponent,  canActivate:[LoginguardGuard] },
+  { path: 'commentform-component', component: CommentformComponent,  canActivate:[LoginguardGuard] },
+  { path: 'blog-component', component: BlogComponent,  canActivate:[LoginguardGuard] },
+  { path: 'message-component', component: MessageComponent,  canActivate:[LoginguardGuard] },
+  { path: 'comment-component', component: CommentComponent,  canActivate:[LoginguardGuard] },
   { path: 'authorize-component', component: AuthorizationComponent},
 ];
 
