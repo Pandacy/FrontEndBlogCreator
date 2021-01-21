@@ -13,8 +13,9 @@ export class MessageComponent implements OnInit {
   messageForm: FormGroup;
   submitted = false;
   data = []
+  router: any;
   constructor(private message: MessageService, private formBuilder: FormBuilder, private http: HttpClient) {
-    this.message.getData(localStorage.getItem("idBlog")).subscribe((data : any[]) => {
+    this.message.getData().subscribe((data : any[]) => {
       this.data = data;
     })
   }

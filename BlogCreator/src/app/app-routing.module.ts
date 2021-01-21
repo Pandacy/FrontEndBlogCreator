@@ -8,6 +8,7 @@ import { MessageComponent } from './message/message.component';
 import { MessageformComponent } from './messageform/messageform.component';
 import { UserformComponent } from './userform/userform.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { BloglistComponent } from './bloglist/bloglist.component';
 import { LoginguardGuard } from './loginguard.guard';
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'blog-component', component: BlogComponent,  canActivate:[LoginguardGuard] },
   { path: 'message-component', component: MessageComponent,  canActivate:[LoginguardGuard] },
   { path: 'comment-component', component: CommentComponent,  canActivate:[LoginguardGuard] },
+  { path: 'bloglist-component', component: BloglistComponent },
   { path: 'authorize-component', component: AuthorizationComponent},
 ];
 

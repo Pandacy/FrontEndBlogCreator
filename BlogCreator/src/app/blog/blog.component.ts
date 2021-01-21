@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BlogService } from './blog.service';
 
 
@@ -12,10 +13,9 @@ import { BlogService } from './blog.service';
 export class BlogComponent implements OnInit {
   
   data
-  constructor(private blog: BlogService) {
+  constructor(private blog: BlogService, private activatedRoute: ActivatedRoute) {
     this.blog.getBlog().subscribe((data) => {
       this.data = data;
-      localStorage.setItem("idBlog", data["id"]);
     })
   }
 

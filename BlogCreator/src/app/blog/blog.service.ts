@@ -12,7 +12,7 @@ export class BlogService {
   }
   getBlog()
   {
-    return this.httpClient.get("http://localhost:9090/blog/" + localStorage.getItem('name'));
+    return this.httpClient.get("http://localhost:9090/blog/" + localStorage.getItem("idBlog"));
   }
   addBlog(payload) {
     this.httpClient.post("http://localhost:9090/blog", payload, { headers: new HttpHeaders().set("Content-Type", "application/json")});
@@ -21,7 +21,7 @@ export class BlogService {
     this.httpClient.post("http://localhost:9090/blog/" + id , payload, { headers: new HttpHeaders().set("Content-Type", "application/json")});
   }
   deleteBlog(id){
-      this.httpClient.delete("http://localhost:9090/blog/" + id);
+    this.httpClient.delete("http://localhost:9090/blog/" + id);
   }
   public isLoggedIn()
   {

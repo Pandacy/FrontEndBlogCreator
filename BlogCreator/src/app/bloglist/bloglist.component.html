@@ -1,0 +1,8 @@
+<div class="card my-4" *ngFor="let item of data">
+    <div class="card-body">
+      <h5>{{item?.title}}</h5>
+      {{item?.description}}
+      <a class="nav-link" routerLink="/blog-component" (click)="enterBlog(item.id)" routerLinkActive="active">Open Blog</a>
+    </div>
+  </div>
+  

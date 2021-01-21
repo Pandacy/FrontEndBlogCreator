@@ -2,6 +2,7 @@ import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { state } from '@angular/animations';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -40,7 +41,7 @@ export class MessageformComponent implements OnInit {
       var data = {
         'content' : this.messageForm.get('content').value,
         'blog' : {
-          'id' : localStorage.getItem('idBlog'),
+          'id' : localStorage.getItem("blogId"),
         }
       };
       console.log(data);

@@ -20,6 +20,7 @@ import { BlogformComponent } from './blogform/blogform.component';
 import { MessageformComponent } from './messageform/messageform.component';
 import { CommentformComponent } from './commentform/commentform.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { BloglistComponent } from './bloglist/bloglist.component';
 
 import { BlogService } from './blog/blog.service';
 import { MessageService} from './message/message.service';
@@ -39,6 +40,7 @@ import { LoginService} from './login.service';
     MessageformComponent,
     CommentformComponent,
     AuthorizationComponent,
+    BloglistComponent,
     
   ],
   imports: [
