@@ -35,21 +35,3 @@ jobs:
         with:
           name: public
           path: ./public
-  # deploy job   
-  deploy:
-    name: Deploy to firebase
-    runs-on: ubuntu-latest
-    # only run if build job complte successfully 
-    needs: [build]
-    steps:
-      # building the app before deploy
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: '10.x'
-      # Install the dependencies need to build the app
-      - name: Install Dependencies
-        run: npm install
-      # build the app
-      - name: Build the app artifact for prod
-        run: npm run build --prod
