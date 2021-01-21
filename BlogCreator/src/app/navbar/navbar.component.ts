@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
   Logout(){
     localStorage.clear();
-    this.ngOnInit();
+    window.location.reload();
     this.router.navigate(['']);
   }
 }

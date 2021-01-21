@@ -27,17 +27,21 @@ export class AuthorizationComponent implements OnInit {
   }
 
   public getAccessToken(){
-    var login = {
-      'name' : this.authForm.get('name').value,
-      'password' : this.authForm.get('pass').value,
-    };
-    
-    let resp=this.httpClient.post("http://localhost:9090/user/login", login, {responseType : 'text'}  );
-    resp.subscribe(data=>this.accessApi(data, login.name));
+    this.submitted = true;
+    if  (this.authForm.valid){
+      var login = {
+        'name' : this.authForm.get('name').value,
+        'password' : this.authForm.get('pass').value,
+      };
+      
+      let resp=this.httpClient.post("http://localhost:9090/user/login", login, {responseType : 'text'}  );
+      resp.subscribe(data=>this.accessApi(data, login.name));
+    }
   }
 
 
   public accessApi(token, name){
+    
     if (token !== ""){
       let tokenStr = 'Bearer ' + token;
       const headers = new HttpHeaders().set('Authorization', tokenStr);

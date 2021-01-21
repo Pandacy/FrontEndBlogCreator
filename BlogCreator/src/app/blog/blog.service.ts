@@ -12,7 +12,6 @@ export class BlogService {
   }
   getBlog()
   {
-    console.log(localStorage.getItem('name'));
     return this.httpClient.get("http://localhost:9090/blog/" + localStorage.getItem('name'));
   }
   addBlog(payload) {

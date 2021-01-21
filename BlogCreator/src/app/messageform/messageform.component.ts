@@ -35,19 +35,21 @@ export class MessageformComponent implements OnInit {
   }
 
   placemessage() {
-    console.log(localStorage.getItem('idBlog'));
-    var data = {
-      'content' : this.messageForm.get('content').value,
-      'blog' : {
-        'id' : localStorage.getItem('idBlog'),
-      }
-    };
-    console.log(data);
-    
-    this.http.post('http://localhost:9090/message', JSON.stringify(data), httpOptions).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error),
-    )
-    window.location.reload();
+    this.submitted = true;
+    if (this.messageForm.valid){
+      var data = {
+        'content' : this.messageForm.get('content').value,
+        'blog' : {
+          'id' : localStorage.getItem('idBlog'),
+        }
+      };
+      console.log(data);
+      
+      this.http.post('http://localhost:9090/message', JSON.stringify(data), httpOptions).subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error),
+      )
+      window.location.reload();
+    }
   }
 }

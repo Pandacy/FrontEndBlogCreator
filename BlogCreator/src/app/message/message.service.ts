@@ -7,7 +7,6 @@ export class MessageService {
   constructor(private httpClient: HttpClient) { }
   getData(id)
   {
-    console.log(id);
     return this.httpClient.get("http://localhost:9090/message/" + id);
   }
   addMessage(payload) {

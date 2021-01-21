@@ -15,7 +15,6 @@ export class BlogComponent implements OnInit {
   constructor(private blog: BlogService) {
     this.blog.getBlog().subscribe((data) => {
       this.data = data;
-      console.log(data);
       localStorage.setItem("idBlog", data["id"]);
     })
   }

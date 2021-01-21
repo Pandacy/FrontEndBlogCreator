@@ -36,16 +36,19 @@ export class BlogformComponent implements OnInit {
   }
 
   blogrequest() {
-    var data = {
-      'description' : this.blogForm.get('description').value,
-      'title' : this.blogForm.get('title').value,
-      'user' : {
-        'name' : localStorage.getItem('name'),
-      }
-    };
-    this.http.post('http://localhost:9090/blog', JSON.stringify(data), httpOptions).subscribe(
-      (response) => console.log(response),
-      (error) => this.error = true,
-    )
+    this.submitted = true;
+    if  (this.blogForm.valid){
+      var data = {
+        'description' : this.blogForm.get('description').value,
+        'title' : this.blogForm.get('title').value,
+        'user' : {
+          'name' : localStorage.getItem('name'),
+        }
+      };
+      this.http.post('http://localhost:9090/blog', JSON.stringify(data), httpOptions).subscribe(
+        (response) => console.log(response),
+        (error) => this.error = true,
+      )
+    }
   }
 }

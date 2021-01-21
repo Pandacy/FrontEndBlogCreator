@@ -1,5 +1,5 @@
 import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -28,10 +28,9 @@ export class UserformComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
+      fullName: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
     });
   }
   get fval() {
@@ -39,15 +38,31 @@ export class UserformComponent implements OnInit {
   }
 
   signup() {
-    var data = {
-      'name' : this.registerForm.get('fullName').value,
-      'email' : this.registerForm.get('email').value,
-      'password': this.registerForm.get('password').value
-    };
-    
-    this.http.post('http://localhost:9090/user', JSON.stringify(data), httpOptions).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error),
-    )
+    this.submitted = true;
+    if (this.registerForm.valid){
+      var data = {
+        'name' : this.registerForm.get('fullName').value,
+        'email' : this.registerForm.get('email').value,
+        'password': this.registerForm.get('password').value
+      };
+      
+      this.http.post('http://localhost:9090/user', JSON.stringify(data), httpOptions).subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error),
+      )
+    }
+    else{
+      this.validateAllFormFields(this.registerForm);
+    }
   }
+  validateAllFormFields(formGroup: FormGroup) {         //{1}
+  Object.keys(formGroup.controls).forEach(field => {  //{2}
+    const control = formGroup.get(field);             //{3}
+    if (control instanceof FormControl) {             //{4}
+      control.markAsTouched({ onlySelf: true });
+    } else if (control instanceof FormGroup) {        //{5}
+      this.validateAllFormFields(control);            //{6}
+    }
+  });
+}
 }
