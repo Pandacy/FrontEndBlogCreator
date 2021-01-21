@@ -24,10 +24,8 @@ jobs:
         with:
           node-version: '10.x'
       # Install the dependencies need to build the app
-      - name: cache clean
-        run: npm cache clean
       - name: Install Dependencies
-        run: npm install
+        run: npm install npm@latest
       # Runs a set of commands to build
       
       - name: Build
